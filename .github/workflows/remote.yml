@@ -15,5 +15,5 @@ jobs:
 
       - run: pip install numpy scipy scikit-learn
 
-      - run: python knn.py
+      - run: python app.py
 
