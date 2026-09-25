@@ -1,6 +1,7 @@
 import os
 import joblib
 from PIL import Image
+from sklearn.neighbors import KNeighborsClassifier
 
 plants = ["cactus", "rose"]
 
@@ -24,10 +25,10 @@ for plant in plants:
         plantforinfo.append(plant)
 
 
-dm = joblib.dump(info, "model.pkl")[0]
-dm = joblib.load(dm)
 
-print(dm)
 print(19*"YOUR MOM")
 
+model = KNeighborsClassifier(n_neighbors=3)
+model.fit(info, plantforinfo)
 
+dm = joblib.dump(model, "model.pkl")
