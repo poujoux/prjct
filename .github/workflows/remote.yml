@@ -1,11 +1,12 @@
 name: Remote Linux
 
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   machine:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v6
 
@@ -16,7 +17,6 @@ jobs:
       - run: pip install numpy scipy scikit-learn Pillow
 
       - run: |
-        echo "---------------LOGS---------------"
-        python app.py
-        echo "---------------LOGS---------------"
-
+          echo "---------------LOGS---------------"
+          python app.py
+          echo "---------------LOGS---------------"
