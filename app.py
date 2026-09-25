@@ -30,6 +30,7 @@ dm = joblib.load(dm)
 
 
 if __name__ == "__main__":
+    print(19*"YOUR MOM")
     print(dm)
 
 
