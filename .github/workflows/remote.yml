@@ -15,5 +15,8 @@ jobs:
 
       - run: pip install numpy scipy scikit-learn Pillow
 
-      - run: python app.py
+      - run: |
+        echo "---------------LOGS---------------"
+        python app.py
+        echo "---------------LOGS---------------"
 
