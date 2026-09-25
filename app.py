@@ -27,10 +27,7 @@ for plant in plants:
 dm = joblib.dump(info, "model.pkl")[0]
 dm = joblib.load(dm)
 
-
-
-if __name__ == "__main__":
-    print(19*"YOUR MOM")
-    print(dm)
+print(dm)
+print(19*"YOUR MOM")
 
 
