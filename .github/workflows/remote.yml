@@ -16,9 +16,17 @@ jobs:
         with:
           python-version: "3.12"
 
+
+
       - run: pip install numpy scipy scikit-learn Pillow
 
       - run: |
           echo "---------------LOGS---------------"
           python app.py
           echo "---------------LOGS---------------"
+
+      - name: eee
+        uses: actions/upload-artifact@v4
+        with:
+          name: p
+          path: model.pkl
