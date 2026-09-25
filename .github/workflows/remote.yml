@@ -4,29 +4,38 @@ on:
   push:
   workflow_dispatch:
 
+permissions:
+  contents: write
 
 jobs:
   machine:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v6
 
-      - uses: actions/setup-python@v6
+      - name: Setup Python
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install scikit-learn Pillow joblib
 
+      - name: Run Python
+        run: |
+          echo "--------------- PYTHON LOGS ---------------"
+          python -u app.py
+          echo "--------------------------------------------"
 
-      - run: pip install numpy scipy scikit-learn Pillow
+      - name: Save model to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - run: |
-          echo "---------------LOGS---------------"
-          python app.py
-          echo "---------------LOGS---------------"
-
-      - name: eee
-        uses: actions/upload-artifact@v4
-        with:
-          name: p
-          path: model.pkl
+          git add model.pkl
+          git commit -m "Update trained model" || echo "No changes to commit"
+          git push
