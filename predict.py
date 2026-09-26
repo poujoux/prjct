@@ -5,7 +5,7 @@ from PIL import Image
 m = joblib.load("model.pkl")
 
 # Open and preprocess image
-img = Image.open("rose/rose0.jpg")
+img = Image.open("cactus/cactus1.jpg")
 img = img.convert("RGB")
 img = img.resize((40, 40))
 
