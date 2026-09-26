@@ -32,7 +32,7 @@ jobs:
           echo "--------------------------------------------"
 
       - name: yourmom
-        run:
+        run: |
           echo "----URMOM-----"
           python -u predict.py
           echo "------URMOM------"

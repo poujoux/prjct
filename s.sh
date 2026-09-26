@@ -9,5 +9,5 @@ git push
 sleep 30
 echo "....."
 
-gh repo view --log
+gh run view --log
 
