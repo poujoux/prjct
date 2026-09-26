@@ -17,5 +17,6 @@ for pixel in img.getdata():
 # Model prediction
 prediction = m.predict([data])
 
+print(50*"PREDICTION")
 print(prediction)
 
