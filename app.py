@@ -32,3 +32,4 @@ model = KNeighborsClassifier(n_neighbors=3)
 model.fit(info, plantforinfo)
 
 dm = joblib.dump(model, "model.pkl")
+
