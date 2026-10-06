@@ -1,4 +1,4 @@
-#from predict import EducateIt
+from predict import EducateIt
 from flask import Flask, request, render_template, jsonify
 from modules.apisendai import sendai # relative imports from same package
 from dotenv import load_dotenv
@@ -25,13 +25,11 @@ def educate():
         return jsonify({"No plant name provided"}), 400
 
 
-    """
     obj = EducateIt(imgs, name)
     result = obj.putfiles()
     
     if result == -1:
         return jsonify({"msg": "Error"}), 400
-    """
 
     return jsonify({"msg": "Training completed"}), 200
 
@@ -45,10 +43,8 @@ def predict():
 
     print("The image:", img, end="\n")
 
-    """
     obj = EducateIt(img)
     Weather = obj.predict()
-    """
 
     Weather = "sunny"
 
